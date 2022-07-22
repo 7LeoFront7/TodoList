@@ -5,7 +5,7 @@ let btnNode = document.querySelector('.js-btn')
 let inputNode = document.querySelector('.js-input')
 let trashNode = document.querySelector('.js-trash')
 let btnDel = document.querySelector('.delete-btn-com')
-let newTodo = document.querySelector('.new-todo')
+
 
 
 
@@ -78,10 +78,13 @@ function render(){
 
 
 
-    html += `<div class="new-todo">${todo.text}
-    <button class="new-btn-com" data-id="${todo.id}">Сделано</button>
-    <button class="delete-btn-com" data-id="${todo.idk}">Удалить</button>
-    </div>`
+    html += `<div class="new-todo">
+    <div class="todo-text">${todo.text}</div>
+    <div class="btn-comfire">
+        <button class="new-btn-com" data-id="${todo.id}">Сделано</button>
+        <button class="delete-btn-com" data-id="${todo.idk}">Удалить</button>
+    </div>
+</div>`
     })
 
     todoNode.innerHTML = html
@@ -92,8 +95,15 @@ function render(){
             return
         }   
 
-        html2 += `<div class="trash-todo">${todo.text}
+        html2 += `<div class="trash-todo">
+        <div class="new-trash-todo">
+            <div class="div-com-text">
+             <h2>${todo.text}</h2>
+        </div>
+       <div>
         <button class="delete-btn-com" data-id="${todo.idk}">Удалить</button>
+       </div>
+        </div>
         </div>`
     })
     
@@ -118,10 +128,10 @@ todoNode.addEventListener('click', (event) => {
  
 
     let idk = event.target.dataset.id;
-    console.log(todosTrash)
+    
 
     if(event.target.classList.value === 'delete-btn-com'){
-        console.log('Удалено')
+     
         deleteTodo(idk)
         render()
     }
@@ -142,10 +152,10 @@ trashNode.addEventListener('click', (event) => {
  
 
     let idk = event.target.dataset.id;
-    console.log(todosTrash)
+    
 
     if(event.target.classList.value === 'delete-btn-com'){
-        console.log('Удалено')
+        
         deleteTodo(idk)
         render()
     }
@@ -169,7 +179,7 @@ todoNode.addEventListener('click', (event) => {
     if (event.target.classList.value === 'new-btn-com'){
         let id = event.target.dataset.id;
 
-   console.log('Выполнено')
+   
  comfirmTodo(id)
     render()
     }
