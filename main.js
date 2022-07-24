@@ -111,6 +111,11 @@ function render(){
 }
 
 btnNode.addEventListener('click', () =>{
+
+    if (inputNode.value == ''){
+        alert('Вы не ввели задачу')
+        return
+    }
     
     let text = inputNode.value;
     inputNode.value ='';
