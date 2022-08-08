@@ -1,2 +1,2 @@
 # TodoList
-My ToDoList
+My EZ ToDoList
